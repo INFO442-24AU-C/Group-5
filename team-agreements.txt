@@ -1,0 +1,32 @@
+
+Birdies (Group 5)
+Emily Hao, Zach Grandeau, Brian (Lingyue) Hao, 
+Matthew Chung, Emily Hao, Mei Zhou
+
+
+Project Roles:
+* Designer & Project Manager: Emily 
+* Front-end Developer: Mei
+* Data Engineer & Developer: Brian
+* Back-end Developer: Zach
+* Researcher & Developer: Matthew
+
+
+Participation: 
+We agree to finish all agreed work on time, have open, frequent, and timely communication, be accountable, and participate in every possible meeting and class session. All members will collectively work on current assignments during the meeting and finish any additional work outside of class. The expectation is that every member’s work will be of their best effort, and in order to ensure this, assignments will be completed at least 24 hours before the deadline to ensure time to properly review and edit all material. 
+
+Communication: 
+We agree to open communication from all team members regarding any conflicts they may have that prevent them from completing their share of the work. Members should respond within the same day the message was received or the next morning if the message was sent at night (8 hours). Members should also send updates if they are unable to finish their part on time, and attend meetings/class at least 24 hours in advance. If an emergency arises, members should notify the team as soon as possible.
+
+Meetings:
+Depending on how much work is achieved through section and class, we agree to an additional online meeting to help us meet our goals for the week. Meetings will be held synchronously online for around an hour to accommodate everyone’s schedules and commuting times, and participation is mandatory. All members will collectively work on current assignments during the meeting and finish any additional work after.
+
+When giving and receiving feedback, we will implement regular check-ins across all members during our weekly team meetings. During these check-ins, using Discord, each member will address what they’re currently working on, and if they’re running into any roadblocks that the rest of the members can help address. This will be especially important at the beginning of our project, as any issues can be addressed and resolved early in the process. 
+
+Conduct:
+We agree to treat each other as colleagues by communicating in a way that is respectful and professional. This form of communication will be used to give and receive feedback that is constructive and supportive. Any harassment and discrimination will not be tolerated, and appropriate measures will be taken to address the situation. We will foster a safe and inclusive environment, where all perspectives are welcomed and encouraged. 
+
+It’s important to our group as a whole to establish clear consent and boundaries when communicating expectations and delegating tasks. We understand that sometimes external events in life may impact our tasks and timeline for this class, so we want each other to be vocal and straightforward with one another as much as possible. 
+
+Conflict:
+If a member does not notify the team member at least 24 hours in advance if they are missing class/section or if they are unable to complete their part of the assignment, the rest of the members will vote in favor of issuing a warning to the member who failed to do their part of the assigned work. Voting will take into consideration the member’s specific situation and context. Because they did not contribute to the assignment that was due, that member will be expected to contribute more towards the next deliverable. After the second warning, there will be a discussion with the rest of the team, and possibly with the TA/Professor depending on the severity of the issue, on how the member’s actions can be addressed and improved moving forward. Compensation for the member’s missing work and contributions will also be discussed.
