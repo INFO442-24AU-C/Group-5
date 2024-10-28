@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from "react";
-import { HomePage } from "./components/HomePage";
+import { HomePage } from './components/main.js';
 
 function App() {
 
@@ -9,6 +9,6 @@ function App() {
       </div>
     );
   }
-  
+
   export default App;
 
