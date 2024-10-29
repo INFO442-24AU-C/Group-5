@@ -16,7 +16,7 @@ export function HomePage() {
   const rsoSection = RSOSection();
 
   container.append(searchBar, backgroundSection, eventsSection, rsoSection);
-  
+
   const app = document.getElementById('app');
   app.appendChild(navbar);
   app.appendChild(container);
