@@ -400,7 +400,7 @@ header .search-bar::placeholder {
 
 .nav-bar .text-wrapper-3 {
   align-self: stretch;
-  color: var(--variable-collection-teal);
+  color: gray;
   font-family: "Gain-Regular", Helvetica;
   font-size: 20px;
   font-weight: 400;
@@ -446,7 +446,7 @@ header .search-bar::placeholder {
 
 .nav-bar .text-wrapper-5 {
   align-self: stretch;
-  color: #9d9d9d;
+  color: white;
   font-family: "Gain-Regular", Helvetica;
   font-size: 20px;
   font-weight: 400;
@@ -462,7 +462,7 @@ header .search-bar::placeholder {
   display: flex;
   flex: 0 0 auto;
   flex-direction: column;
-  gap: 300px;
+  gap: 400px;
   position: relative;
   width: 100%;
   padding: 40px 60px 0px;
@@ -520,6 +520,19 @@ header .search-bar::placeholder {
   flex: 0 0 auto !important;
 }
 
+.nav-bar .create-event-button {
+  display: flex;
+  width: 262px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  position: relative;
+  align-self: stretch;
+  background-color: #29d2c9;
+  border-radius: 10px;
+
+}
+
 .nav-bar .profile {
   align-items: center;
   align-self: stretch;
@@ -568,9 +581,20 @@ header .search-bar::placeholder {
 
 .nav-bar .text-wrapper-7 {
   align-self: stretch;
-  color: var(--variable-collection-gray);
+  color: white;
   font-family: "Gain-Regular", Helvetica;
   font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+}
+
+.nav-bar .text-wrapper-8 {
+  align-self: stretch;
+  color: rgba(255, 255, 255, 0.512);
+  font-family: "Gain-Regular", Helvetica;
+  font-size: 15px;
   font-weight: 400;
   letter-spacing: 0;
   line-height: normal;

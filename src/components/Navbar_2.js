@@ -1,7 +1,4 @@
 import React from "react";
-// import { Home } from "./Home";
-// import { Home1 } from "./Home1";
-// import { IconComponentNode } from "./IconComponentNode";
 
 export const NavBar = () => {
   return (
@@ -28,7 +25,6 @@ export const NavBar = () => {
         <div className="frame-2">
           <div className="frame-3">
             <div className="navbar-button">
-              {/* <Home className="iconex-light-home" /> */}
               <div className="text-wrapper-5">Home</div>
             </div>
 
@@ -38,7 +34,6 @@ export const NavBar = () => {
             </div>
 
             <div className="navbar-button-2">
-              {/* <Home1 className="home-instance" /> */}
               <div className="text-wrapper-3">Postings</div>
             </div>
           </div>
@@ -53,7 +48,7 @@ export const NavBar = () => {
 
               <div className="profile">
                 <div className="name">
-                  <img className="image" alt="Image" />
+                  <img src="/img/profile_bird.png" className="image" alt="Image" />
 
                   <div className="frame-4">
                     <div className="text-wrapper-7">John Doe</div>
