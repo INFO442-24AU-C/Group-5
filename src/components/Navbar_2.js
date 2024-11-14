@@ -53,7 +53,7 @@ export const NavBar = () => {
 
               <div className="profile">
                 <div className="name">
-                  <img className="image" alt="Image" />
+                  <img className="image" src="img/profile.jpg" alt="Image" />
 
                   <div className="frame-4">
                     <div className="text-wrapper-7">John Doe</div>
