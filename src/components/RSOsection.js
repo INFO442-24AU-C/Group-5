@@ -54,9 +54,9 @@ import '../style.css';
 
 export function RSOSection() {
   const rsos = [
-    { title: 'Music for Charity', description: 'Introductory Meeting', imageSrc: '../public/img/RSO.png' },
-    { title: 'Birdwatching Club', description: 'Join us for bird watching!', imageSrc: '../public/img/RSO.png' },
-    { title: 'Music for Charity', description: 'Introductory Meeting', imageSrc: '../public/img/RSO.png' },
+    { title: 'Music for Charity', description: 'Introductory Meeting', imageSrc: '/img/RSO.png' },
+    { title: 'Birdwatching Club', description: 'Join us for bird watching!', imageSrc: '/img/RSO.png' },
+    { title: 'Music for Charity', description: 'Introductory Meeting', imageSrc: '/img/RSO.png' },
   ];
 
   return (

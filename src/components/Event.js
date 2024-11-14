@@ -101,7 +101,7 @@ export function Events() {
       date: 'May 22, 2024',
       time: '7:30 PM',
       admission: 'Free Admission',
-      image: '../public/img/background.png'
+      image: '/img/event.jpg'
     },
     {
       title: 'Another Event',
@@ -109,7 +109,7 @@ export function Events() {
       date: 'June 15, 2024',
       time: '8:00 PM',
       admission: 'Free Admission',
-      image: '../public/img/background.png'
+      image: '/img/event.jpg'
     },
     {
       title: 'Event 3',
@@ -117,7 +117,7 @@ export function Events() {
       date: 'July 10, 2024',
       time: '6:00 PM',
       admission: 'Free Admission',
-      image: '../public/img/background.png'
+      image: '/img/event.jpg'
     },
     {
       title: 'Event 4',
@@ -125,7 +125,7 @@ export function Events() {
       date: 'August 5, 2024',
       time: '9:00 PM',
       admission: 'Free Admission',
-      image: '../public/img/background.png'
+      image: '/img/event.jpg'
     },
   ];
 
