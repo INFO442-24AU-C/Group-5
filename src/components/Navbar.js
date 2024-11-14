@@ -1,4 +1,4 @@
-import { ProfilePage } from './ProfilePage.js';  
+import { ProfilePage } from './ProfilePage.js';
 
 export function Navbar() {
   const navbar = document.createElement('div');
@@ -15,7 +15,7 @@ export function Navbar() {
 
   const notificationText = document.createElement('span');
   notificationText.textContent = 'Notifications';
-  
+
   const badge = document.createElement('span');
   badge.classList.add('badge');
   badge.textContent = '2';
@@ -39,15 +39,15 @@ export function Navbar() {
 
   const userProfile = document.createElement('div');
   userProfile.classList.add('user-profile');
-  
+
   // Navigate to ProfilePage
   const profileImage = document.createElement('img');
   profileImage.src = '../src/components/profile.jpg';
   profileImage.alt = 'Profile';
   profileImage.classList.add('profile-pic');
   profileImage.addEventListener('click', () => {
-    document.getElementById('app').innerHTML = ''; 
-    document.getElementById('app').appendChild(ProfilePage());  
+    document.getElementById('app').innerHTML = '';
+    document.getElementById('app').appendChild(ProfilePage());
   });
 
   const userInfo = document.createElement('div');
@@ -66,6 +66,3 @@ export function Navbar() {
   navbar.append(title, subtitle, notifications, navContainer, createEventButton, userProfile);
   return navbar;
 }
-
-
-    
