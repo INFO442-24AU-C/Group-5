@@ -22,7 +22,12 @@
 //   app.appendChild(container);
 // }
 
-// HomePage();
+
+  const app = document.getElementById('app');
+  //app.appendChild(navbar);
+  //app.appendChild(container);
+}
+
 
 // components/HomePage.js
 import React from 'react';
