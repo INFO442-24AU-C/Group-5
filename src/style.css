@@ -562,11 +562,15 @@ header .search-bar::placeholder {
   position: relative;
 }
 
-.nav-bar .image {
+.nav-bar #profileImg {
   height: 60px;
   object-fit: cover;
   position: relative;
   width: 60px;
+}
+
+#profileImg {
+  border-radius: 30px;
 }
 
 .nav-bar .frame-4 {
