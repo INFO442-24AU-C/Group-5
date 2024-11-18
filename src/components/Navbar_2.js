@@ -47,9 +47,9 @@ export const NavBar = () => {
           <div className="bottom-section">
             <div className="action-menu">
               <div className="create-event-button">
-                <div className="div-wrapper">
-                  <div className="text-wrapper-6">+ Create Event</div>
-                </div>
+              <NavLink to="/create-events" activeClassName="active-link">
+              + Create Event
+              </NavLink>
               </div>
 
               <div className="profile">
