@@ -34,13 +34,11 @@
 
 
 // components/SearchBar.js
-import React, { useState } from 'react';
-import '../style.css';
+import React from "react";
+import "../style.css";
 
-export function SearchBar() {
-  const [activeFilter, setActiveFilter] = useState('All');
-
-  const filters = ['All', 'Saved', 'Classical', 'Rock', 'Kpop', 'Country', 'Voice'];
+export function SearchBar({ activeFilter, setActiveFilter, searchText, setSearchText }) {
+  const filters = ["All", "Classical", "Rock", "Kpop", "Country", "Voice", "Other"];
 
   const handleFilterClick = (filterText) => {
     setActiveFilter(filterText);
@@ -53,6 +51,8 @@ export function SearchBar() {
         type="text"
         placeholder="Find your birds of a feather!"
         className="search-bar"
+        value={searchText}
+        onChange={(e) => setSearchText(e.target.value)} // Update search text
       />
 
       {/* Filter button container */}
@@ -60,7 +60,7 @@ export function SearchBar() {
         {filters.map((filterText) => (
           <button
             key={filterText}
-            className={`filter-button ${activeFilter === filterText ? 'active' : ''}`}
+            className={`filter-button ${activeFilter === filterText ? "active" : ""}`}
             onClick={() => handleFilterClick(filterText)}
           >
             {filterText}

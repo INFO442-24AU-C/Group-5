@@ -1,155 +1,77 @@
+import React, { useEffect, useState } from "react";
+import { database } from "./firebaseConfig";
+import { ref, onValue } from "firebase/database";
+import "../style.css";
 
-// export function Events() {
-//   const section = document.createElement('section');
-//   section.classList.add('events-section');
+export function Events({ activeFilter, searchText }) {
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-//   const heading = document.createElement('h3');
-//   heading.textContent = 'Events';
-//   section.appendChild(heading);
+  useEffect(() => {
+    const eventsRef = ref(database, "events");
 
-//   const eventCardsContainer = document.createElement('div');
-//   eventCardsContainer.classList.add('event-cards');
+    const unsubscribe = onValue(
+      eventsRef,
+      (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+          const eventsArray = Object.values(data);
+          setEvents(eventsArray);
+        } else {
+          setEvents([]);
+        }
+        setLoading(false);
+      },
+      (error) => {
+        console.error("Error fetching events:", error);
+        setError("Failed to load events.");
+        setLoading(false);
+      }
+    );
 
-//   const events = [
-//     {
-//       title: 'A Ghibli Medley',
-//       description: 'Concert by music for charity',
-//       date: 'May 22, 2024',
-//       time: '7:30 PM',
-//       admission: 'Free Admission',
-//       image: '../src/components/event.jpg'
-//     },
-//     {
-//       title: 'A Ghibli Medley',
-//       description: 'Concert by music for charity',
-//       date: 'May 22, 2024',
-//       time: '7:30 PM',
-//       admission: 'Free Admission',
-//       image: '../src/components/event.jpg'
-//     },
-//     {
-//       title: 'A Ghibli Medley',
-//       description: 'Concert by music for charity',
-//       date: 'May 22, 2024',
-//       time: '7:30 PM',
-//       admission: 'Free Admission',
-//       image: '../src/components/event.jpg'
-//     },
-//     {
-//       title: 'A Ghibli Medley',
-//       description: 'Concert by music for charity',
-//       date: 'May 22, 2024',
-//       time: '7:30 PM',
-//       admission: 'Free Admission',
-//       image: '../src/components/event.jpg'
-//     },
+    return () => unsubscribe(); // Cleanup subscription on component unmount
+  }, []);
 
-//   ];
+  const filteredEvents = events
+    .filter((event) => activeFilter === "All" || event.genre === activeFilter) // Filter by genre
+    .filter((event) => event.name.toLowerCase().includes(searchText.toLowerCase())); // Filter by search text
 
-//   events.forEach(event => {
-//     const eventCard = document.createElement('div');
-//     eventCard.classList.add('event-card');
+  if (loading) {
+    return <p>Loading events...</p>;
+  }
 
-//     const eventImage = document.createElement('img');
-//     eventImage.src = '../../public/img/event.jpg';
-//     eventImage.alt = event.title;
-//     eventImage.classList.add('event-image');
-
-//     const eventInfo = document.createElement('div');
-//     eventInfo.classList.add('event-info');
-
-//     const title = document.createElement('h4');
-//     title.classList.add('event-title');
-//     title.textContent = event.title;
-
-//     const description = document.createElement('p');
-//     description.classList.add('event-description');
-//     description.textContent = event.description;
-
-//     const details = document.createElement('div');
-//     details.classList.add('event-details');
-
-//     const date = document.createElement('p');
-//     date.classList.add('event-date');
-//     date.textContent = `${event.date} | ${event.time}`;
-
-//     const admission = document.createElement('p');
-//     admission.classList.add('event-admission');
-//     admission.textContent = event.admission;
-
-//     details.append(date, admission);
-//     eventInfo.append(title, description, details);
-//     eventCard.append(eventImage, eventInfo);
-
-//     eventCardsContainer.appendChild(eventCard);
-//   });
-
-//   section.appendChild(eventCardsContainer);
-//   return section;
-// }
-
-
-// components/Events.js
-import React from 'react';
-import '../style.css';
-
-export function Events() {
-  const events = [
-    {
-      title: 'A Ghibli Medley',
-      description: 'Concert by music for charity',
-      date: 'May 22, 2024',
-      time: '7:30 PM',
-      admission: 'Free Admission',
-      image: '/img/event.jpg'
-    },
-    {
-      title: 'Another Event',
-      description: 'A different concert for charity',
-      date: 'June 15, 2024',
-      time: '8:00 PM',
-      admission: 'Free Admission',
-      image: '/img/event.jpg'
-    },
-    {
-      title: 'Event 3',
-      description: 'Charity auction event',
-      date: 'July 10, 2024',
-      time: '6:00 PM',
-      admission: 'Free Admission',
-      image: '/img/event.jpg'
-    },
-    {
-      title: 'Event 4',
-      description: 'A dance party for charity',
-      date: 'August 5, 2024',
-      time: '9:00 PM',
-      admission: 'Free Admission',
-      image: '/img/event.jpg'
-    },
-  ];
+  if (error) {
+    return <p className="error">{error}</p>;
+  }
 
   return (
     <section className="events-section">
       <h3>Events</h3>
       <div className="event-cards">
-        {events.map((event, index) => (
-          <div key={index} className="event-card">
-            <img
-              src={event.image}
-              alt={event.title}
-              className="event-image"
-            />
-            <div className="event-info">
-              <h4 className="event-title">{event.title}</h4>
-              <p className="event-description">{event.description}</p>
-              <div className="event-details">
-                <p className="event-date">{`${event.date} | ${event.time}`}</p>
-                <p className="event-admission">{event.admission}</p>
+        {filteredEvents.length > 0 ? (
+          filteredEvents.map((event, index) => (
+            <div key={index} className="event-card">
+              <img
+                src={event.headerImage || "/img/default-event.jpg"} // Use default image if none is provided
+                alt={event.title}
+                className="event-image"
+              />
+              <div className="event-info">
+                <h4 className="event-title">{event.name}</h4>
+                <p className="event-description">{event.details}</p>
+                <div className="event-details">
+                  <p className="event-date">{`${event.date} | ${event.startTime || "N/A"}`}</p>
+                  <p className="event-admission">
+                    {event.admission ? `$${event.admission}` : "Free Admission"}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p style={{ color: 'white' }}>No events match your search.</p>
+        )}
       </div>
     </section>
   );

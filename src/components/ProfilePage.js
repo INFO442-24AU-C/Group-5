@@ -1,19 +1,13 @@
- import { Navbar } from './Navbar.js';
-import { HomePage } from './main.js';
+import React from 'react';
 
+const ProfilePage = () => {
 
-export function ProfilePage() {
-  const navbar = Navbar();
-
-  const title = navbar.querySelector('h2');
-  title.style.cursor = 'pointer';
-  title.addEventListener('click', () => {
-    document.getElementById('app').innerHTML = '';
-    HomePage();
-  });
-
-  const app = document.getElementById('app');
-    app.appendChild(navbar);
-
-  return app;
+  return (
+    <div >
+      <h1>Create an Event</h1>
+    </div>
+  );
 }
+
+export default ProfilePage;
+

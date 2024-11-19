@@ -1,4 +1,9 @@
 import React from "react";
+import { NavLink } from 'react-router-dom';
+// import { Home } from "./Home";
+// import { Home1 } from "./Home1";
+// import { IconComponentNode } from "./IconComponentNode";
+
 
 export const NavBar = () => {
   return (
@@ -25,12 +30,13 @@ export const NavBar = () => {
         <div className="frame-2">
           <div className="frame-3">
             <div className="navbar-button">
-              <div className="text-wrapper-5">Home</div>
+              {/* <Home className="iconex-light-home" /> */}
+              <div className="text-wrapper-5"><NavLink to="/home">Home</NavLink></div>
             </div>
 
             <div className="navbar-button-2">
               {/* <IconComponentNode className="home-instance" /> */}
-              <div className="text-wrapper-3">RSOs + Events</div>
+              <div className="text-wrapper-3"><NavLink to="/rso-and-events">RSOs + Events</NavLink></div>
             </div>
 
             <div className="navbar-button-2">
@@ -41,20 +47,19 @@ export const NavBar = () => {
           <div className="bottom-section">
             <div className="action-menu">
               <div className="create-event-button">
-                <div className="div-wrapper">
-                  <div className="text-wrapper-6">+ Create Event</div>
-                </div>
+              <NavLink to="/create-events" activeClassName="active-link">
+              + Create Event
+              </NavLink>
               </div>
 
               <div className="profile">
                 <div className="name">
-
-                  <img className="image" src="img/profile.jpg" alt="Image" />
+                  <img id="profileImg" src="img/profile.jpg" alt="Image" />
 
 
 
                   <div className="frame-4">
-                    <div className="text-wrapper-7">John Doe</div>
+                    <div className="text-wrapper-7"><NavLink to="/profile">John Doe</NavLink></div>
 
                     <div className="text-wrapper-8">Guitarist</div>
                   </div>

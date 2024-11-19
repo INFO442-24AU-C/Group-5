@@ -562,11 +562,15 @@ header .search-bar::placeholder {
   position: relative;
 }
 
-.nav-bar .image {
+.nav-bar #profileImg {
   height: 60px;
   object-fit: cover;
   position: relative;
   width: 60px;
+}
+
+#profileImg {
+  border-radius: 30px;
 }
 
 .nav-bar .frame-4 {
@@ -633,4 +637,145 @@ header .search-bar::placeholder {
   margin-left: -2.25px !important;
   position: relative !important;
   width: 28.5px !important;
+}
+
+
+
+.event-form-container {
+  background-color: #181818;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.event-form {
+  background: #2c2c2c;
+  padding: 40px;
+  border-radius: 8px;
+  max-width: 800px;
+  width: 100%;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.event-form h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.event-form label {
+  font-weight: bold;
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.event-form input,
+.event-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #444;
+  color: white;
+}
+
+.event-form textarea {
+  height: 100px;
+  resize: none;
+}
+
+.time-container {
+  display: flex;
+  gap: 20px;
+}
+
+.genre-selection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.genre-button {
+  padding: 12px 20px;
+  background: #444;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.genre-button.selected {
+  background: #00a3ff;
+  font-weight: bold;
+}
+
+.message {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 16px;
+  width: 100%;
+  background-color: #2c2c2c; /* Default background color */
+}
+
+.message.success {
+  background-color: #28a745;
+  color: white;
+  border: 1px solid #1e7e34;
+}
+
+.message.error {
+  background-color: #dc3545;
+  color: white;
+  border: 1px solid #c82333;
+}
+
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.cancel-button {
+  background: #888;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancel-button:hover {
+  background: #666;
+}
+
+.save-button {
+  background: #00a3ff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.save-button:hover {
+  background: #008bcc;
+}
+
+.role-selection {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #444;
+  color: white;
 }

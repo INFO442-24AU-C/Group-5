@@ -1,22 +1,73 @@
-import { React, useEffect, useState } from "react";
 
+import { BrowserRouter, Route, Routes, Navigate, useNavigate, Outlet } from "react-router-dom";
+import { React, useEffect, useState } from "react";
 import { NavBar } from "./components/Navbar_2.js";
+import { auth } from "./components/firebaseConfig.js";
+import { onAuthStateChanged, getAuth } from 'firebase/auth';
+import { getDatabase, ref, push, set as firebaseSet } from "firebase/database";
+
 
 import { HomePage } from "./components/main.js";
-
-import { Route, Routes, Navigate, useNavigate, Outlet } from "react-router-dom";
-import { getDatabase, DataSnapshot, ref, push as firebasePush, onValue, set as firebaseSet } from 'firebase/database';
-
+// import { getDatabase, DataSnapshot, ref, push as firebasePush, onValue, set as firebaseSet } from 'firebase/database';
+import CreateProfilePage from "./components/CreateProfilePage.js";
+import { RSOSection } from "./components/RSOsection.js";
+import CreateEventPage from "./components/CreateEventPage.js";
+import { SignInPage } from "./SignInPage.js";
 
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(null);
+  const navigateTo = useNavigate();
 
-    return (
-      <div>
-        <HomePage/>
-      </div>
-    );
-  }
+  // console.log(currentUser);
+  const database = getDatabase();
 
-  export default App;
+  // const userDataRef = ref(database, "userData");
 
+
+  useEffect(() => {
+    const auth = getAuth();
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log("signing in as", user.displayName);
+        setCurrentUser(user);
+
+        // console.log("is not null");
+        if (user.uid != null) {
+          // console.log("test is not null")
+          const userNameRef = ref(database, "userData/" + user.uid + "/name");
+          const userEmailRef = ref(database, "userData/" + user.uid + "/email");
+          firebaseSet(userNameRef, user.displayName);
+          firebaseSet(userEmailRef, user.email);
+          
+        }
+        
+
+
+      }
+      else {
+        console.log("signed out");
+        setCurrentUser(null);
+        navigateTo('/signin');
+      }
+    })
+
+
+  })
+
+  return (
+    <div>
+        <Routes>
+            <Route index element={<SignInPage />} />
+            <Route path="home" element={<HomePage />} />
+            <Route path="/rso-and-events" element={<RSOSection />} />
+            <Route path="/profile" element={<CreateProfilePage />} />
+            <Route path="/create-events" element={<CreateEventPage />} />
+        </Routes>
+    </div>
+  );
+}
+
+
+export default App;
