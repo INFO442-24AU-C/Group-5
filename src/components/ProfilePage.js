@@ -1,12 +1,13 @@
 import React from 'react';
-import { Navbar } from './Navbar';
 
-
-export function ProfilePage() {  
+const ProfilePage = () => {
 
   return (
-    <div>
-      <p> Hello </p>
+    <div >
+      <h1>Create an Event</h1>
     </div>
   );
 }
+
+export default ProfilePage;
+
