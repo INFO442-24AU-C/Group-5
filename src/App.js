@@ -15,8 +15,8 @@ function App() {
 
   return (
     <div>
-        <HomePage />
         <Routes>
+            <Route index element={<HomePage />} />
             <Route path="/rso-and-events" element={<RSOSection />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/create-events" element={<CreateEventPage />} />

@@ -1,10 +1,11 @@
 import React from "react";
 import EventForm from "./EventForm";
+import { NavBar } from "./Navbar_2";
 
 const CreateEventPage = () => {
   return (
-    <div>
-      <h1>Create Events</h1>
+    <div className="main-content">
+      <NavBar />
       <EventForm />
     </div>
   );
