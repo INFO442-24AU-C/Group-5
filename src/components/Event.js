@@ -30,7 +30,7 @@ export function Events({ activeFilter, searchText }) {
       }
     );
 
-    return () => unsubscribe(); // Cleanup subscription on component unmount
+    return () => unsubscribe(); 
   }, []);
 
   const filteredEvents = events
@@ -53,9 +53,7 @@ export function Events({ activeFilter, searchText }) {
           filteredEvents.map((event, index) => (
             <div key={index} className="event-card">
               <img
-                src={event.headerImage || "/img/default-event.jpg"} // Use default image if none is provided
-                alt={event.title}
-                className="event-image"
+                src={"/img/event.jpg"} 
               />
               <div className="event-info">
                 <h4 className="event-title">{event.name}</h4>
