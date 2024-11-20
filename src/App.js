@@ -59,10 +59,9 @@ function App() {
   return (
     <div>
         <Routes>
-            {/* <Route index element={<SignInPage />} />
-            <Route path="home" element={<HomePage />} /> */}
-
             <Route index element={<HomePage />} />
+            <Route path="home" element={<HomePage />} />
+            <Route path="/sign-in" element={<SignInPage />} />
             <Route path="/rso-and-events" element={<RSOSection />} />
             <Route path="/profile" element={<CreateProfilePage />} />
             <Route path="/create-events" element={<CreateEventPage />} />
