@@ -31,7 +31,7 @@ export const NavBar = () => {
           <div className="frame-3">
             <div className="navbar-button">
               {/* <Home className="iconex-light-home" /> */}
-              <div className="text-wrapper-5"><NavLink to="/home">Home</NavLink></div>
+              <div className="text-wrapper-5"><NavLink to="/">Home</NavLink></div>
             </div>
 
             <div className="navbar-button-2">
