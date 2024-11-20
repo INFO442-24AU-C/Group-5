@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import { database, storage } from "./firebaseConfig";
+import { database } from "./firebaseConfig";
 import { ref as dbRef, push, set } from "firebase/database";
-import { ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const EventForm = () => {
   const [event, setEvent] = useState({
     role: "",
     name: "",
-    headerImage: null,
     details: "",
     rsoAffiliation: "",
     date: "",
@@ -19,8 +17,8 @@ const EventForm = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [message, setMessage] = useState(""); // For success or error messages
-  const genres = ["Classical", "Rock", "Kpop", "Country", "Voice", "Other"]; // Genre options
+  const [message, setMessage] = useState("");  
+  const genres = ["Classical", "Rock", "Kpop", "Country", "Voice", "Other"];  
 
   // Handle input field changes
   const handleChange = (e) => {
@@ -33,18 +31,11 @@ const EventForm = () => {
     setEvent({ ...event, genre: selectedGenre });
   };
 
-  // Handle image selection
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-    setEvent({ ...event, headerImage: file });
-  };
-
   // Reset form
   const handleReset = () => {
     setEvent({
       role: "",
       name: "",
-      headerImage: null,
       details: "",
       rsoAffiliation: "",
       date: "",
@@ -54,14 +45,12 @@ const EventForm = () => {
       genre: "",
       link: "",
     });
-    setMessage("");
-    setIsSubmitting(false);
   };
 
   // Submit form
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setMessage("");
+    setMessage(""); 
     setIsSubmitting(true);
 
     try {
@@ -71,22 +60,13 @@ const EventForm = () => {
 
       const eventData = { ...event };
 
-      // Optional image upload
-      if (event.headerImage) {
-        const fileRef = storageRef(storage, `event-images/${event.headerImage.name}`);
-        console.log("Uploading image...");
-        await uploadBytes(fileRef, event.headerImage);
-        eventData.headerImage = await getDownloadURL(fileRef);
-        console.log("Image URL retrieved:", eventData.headerImage);
-      }
-
       // Save event data to Firebase Realtime Database
       console.log("Saving event data:", eventData);
       await set(newEventRef, eventData);
       console.log("Event saved successfully!");
 
-      setMessage("Event created successfully!");
-      handleReset();
+      handleReset(); 
+      setMessage("Event created successfully!");  
     } catch (error) {
       console.error("Error during form submission:", error);
       setMessage("Error creating event. Please try again.");
@@ -126,9 +106,6 @@ const EventForm = () => {
           onChange={handleChange}
           required
         />
-
-        <label htmlFor="headerImage">Header Image (Optional)</label>
-        <input id="headerImage" type="file" name="headerImage" onChange={handleImageUpload} />
 
         <label htmlFor="details">Details</label>
         <textarea
@@ -233,10 +210,19 @@ const EventForm = () => {
 
         {message && (
           <div
-            className={`message ${
+            className={`message-container ${
               message.includes("Error") ? "error" : "success"
             }`}
-            style={{ marginTop: "20px", textAlign: "center" }}
+            style={{
+              border: "1px solid",
+              padding: "10px",
+              borderRadius: "5px",
+              marginTop: "20px",
+              textAlign: "center",
+              backgroundColor: message.includes("Error") ? "#fdd" : "#dfd",
+            }}
+            role="alert"
+            aria-live="polite"
           >
             {message}
           </div>

@@ -30,7 +30,7 @@ export function Events({ activeFilter, searchText }) {
       }
     );
 
-    return () => unsubscribe(); // Cleanup subscription on component unmount
+    return () => unsubscribe(); 
   }, []);
 
   const filteredEvents = events

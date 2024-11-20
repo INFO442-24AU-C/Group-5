@@ -726,16 +726,14 @@ header .search-bar::placeholder {
   background-color: #2c2c2c; /* Default background color */
 }
 
-.message.success {
-  background-color: #28a745;
-  color: white;
-  border: 1px solid #1e7e34;
+.success {
+  color: green;
+  font-weight: bold;
 }
 
-.message.error {
-  background-color: #dc3545;
-  color: white;
-  border: 1px solid #c82333;
+.error {
+  color: red;
+  font-weight: bold;
 }
 
 

@@ -16,45 +16,45 @@ import { SignInPage } from "./SignInPage.js";
 
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null);
-  const navigateTo = useNavigate();
+  // const [currentUser, setCurrentUser] = useState(null);
+  // const navigateTo = useNavigate();
 
-  // console.log(currentUser);
-  const database = getDatabase();
+  // // console.log(currentUser);
+  // const database = getDatabase();
 
-  // const userDataRef = ref(database, "userData");
+  // // const userDataRef = ref(database, "userData");
 
 
-  useEffect(() => {
-    const auth = getAuth();
+  // useEffect(() => {
+  //   const auth = getAuth();
 
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        console.log("signing in as", user.displayName);
-        setCurrentUser(user);
+  //   onAuthStateChanged(auth, (user) => {
+  //     if (user) {
+  //       console.log("signing in as", user.displayName);
+  //       setCurrentUser(user);
 
-        // console.log("is not null");
-        if (user.uid != null) {
-          // console.log("test is not null")
-          const userNameRef = ref(database, "userData/" + user.uid + "/name");
-          const userEmailRef = ref(database, "userData/" + user.uid + "/email");
-          firebaseSet(userNameRef, user.displayName);
-          firebaseSet(userEmailRef, user.email);
+  //       // console.log("is not null");
+  //       if (user.uid != null) {
+  //         // console.log("test is not null")
+  //         const userNameRef = ref(database, "userData/" + user.uid + "/name");
+  //         const userEmailRef = ref(database, "userData/" + user.uid + "/email");
+  //         firebaseSet(userNameRef, user.displayName);
+  //         firebaseSet(userEmailRef, user.email);
           
-        }
+  //       }
         
 
 
-      }
-      else {
-        console.log("signed out");
-        setCurrentUser(null);
-        navigateTo('/signin');
-      }
-    })
+  //     }
+  //     else {
+  //       console.log("signed out");
+  //       setCurrentUser(null);
+  //       navigateTo('/signin');
+  //     }
+  //   })
 
 
-  })
+  // })
 
   return (
     <div>
