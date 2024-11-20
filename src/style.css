@@ -1,29 +1,28 @@
 /* General Styles */
+
 body {
   margin: 0;
+  padding: 0;
   font-family: 'Gain', sans-serif;
   color: #E4E4E4;
   background-color: #1E1E1E;
 }
-
 
 .container {
   display: flex;
   height: 100vh;
 }
 
-.main-content {
-  display: flex;
-  flex-direction: row;
-}
-
 .home-page {
+  display: block;
   margin: auto;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Search Bar */
 .search-bar-container {
-  padding: 20px;
+  padding: 40px;
   background-color: #1E1E1E;
 }
 
@@ -177,8 +176,8 @@ body {
 
 /* Main Content (Home page)*/
 .main-content {
-  flex: 1;
-  padding: 20px;
+  display: flex;
+  flex-direction: row;
   overflow-y: auto;
   background-color: #1E1E1E;
 }
@@ -209,16 +208,24 @@ header .search-bar::placeholder {
 }
 
 /* Event Card */
+.events-section {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
 .events-section h3 {
   color: #FFFFFF;
   font-size: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
+  margin-left: 80px;
 }
 
 .event-cards {
   display: flex;
-  gap: 20px;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
 }
 
 .event-card {
