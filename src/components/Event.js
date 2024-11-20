@@ -53,7 +53,9 @@ export function Events({ activeFilter, searchText }) {
           filteredEvents.map((event, index) => (
             <div key={index} className="event-card">
               <img
-                src={"/img/event.jpg"} 
+                src={event.headerImage || "/img/event.jpg"} // Use default image if none is provided
+                alt={event.title}
+                className="event-image"
               />
               <div className="event-info">
                 <h4 className="event-title">{event.name}</h4>
