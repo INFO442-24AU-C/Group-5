@@ -895,3 +895,45 @@ body {
   background-color: #444;
   color: white;
  }
+
+
+/* event details section */
+ 
+ .event-page {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; 
+  background-color: #2c2c2c; 
+}
+
+.event-top {
+  display: flex;
+  flex-direction: row;
+  /* width: 100%; */
+  /* align-items: center; */
+}
+
+.event-header {
+  position: relative; /* Ensures the child elements can use absolute positioning */
+  border-radius: 10px;
+  margin: 10px;
+  flex: 1;
+  background: url('/./public/img/event.jpg') lightgray 50% / cover no-repeat;
+  width: 500px; /* Adjust as needed */
+  height: 400px; /* Adjust as needed */
+}
+
+.event-details {
+  position: absolute; /* Position relative to the .event-header */
+  bottom: -105px; /* Adjust this value to control spacing below the header */
+  left: 0;
+  width: 100%;
+  color: white;
+  text-align: left;
+  padding: 0px 5px; /* Optional padding for spacing */
+  border-radius: 10px;
+}
+
+
+
+
