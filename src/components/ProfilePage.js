@@ -19,9 +19,10 @@ const ProfilePage = () => {
           </div>
         </div>
         <div className="header-actions">
-          <button className="auto-btn"><NavLink to="/sign-in">Logout</NavLink></button>
-          
-          <button className="add-to-profile-btn">Edit Profile</button>
+          <button className="auto-btn"><NavLink to="/sign-in">Sign Out</NavLink></button>
+          <NavLink to="../edit">
+            <button className="add-to-profile-btn">Edit Profile</button>
+          </NavLink>
         </div>
       </header>
       <main className="profile-content">
@@ -58,4 +59,53 @@ const ProfilePage = () => {
 };
 
 export default ProfilePage;
+
+
+// return (
+//   <div className="profile">
+//     <Nav />
+//     <div className="profile-content">
+//       <section className="section-one">
+//         <h1>My profile</h1>
+//         <div>
+//           <img src='img/profileImage_default.png' alt="profile image" className="rounded-circle border border-dark"/>
+//           <p>Name : {userName}</p>
+//           <p>Email : {userEmail}</p>
+//         </div>
+//         <Link to="../edit">
+//           <button type="button" class="btn-color rounded-5">Edit Profile</button>
+//         </Link>
+//         <Link to="../signin">
+//           <button type="button" class="btn-color rounded-5" onClick={handleSignOut}>Sign Out</button> 
+//         </Link>
+//       </section>
+//       <section className="section-two">
+//         <div className="flex-box bg-color quizBox">
+//           <div className="flex-subtitle">
+//             <img src="img/quiz_result_icon.png" alt="quiz result icon"/>
+//             <h2>Quiz Result</h2>                
+//           </div>
+//           {resultTemp && resultSeason &&
+//             <p>You are a {resultTemp} {resultSeason}!</p> 
+//           }
+//         </div>
+//         <div className="flex-box">
+//           <div className="flex-subtitle">
+//             <img src="img/saved_items_icon.png" alt="saved items icon"/>
+//             <h2>Saved Items</h2>
+//           </div>
+//           <SavedItems user={user}/>
+//         </div>
+//         <div className="flex-box">
+//           <div className="flex-subtitle">
+//             <img src="img/recommendations_icon.png" alt="recommendations icon"/>
+//             <h2>Recommendations</h2>
+//           </div>
+//           <RecommendationItems user={user}/>
+//         </div>
+//       </section>
+//     </div>
+//     <Footer />
+//   </div>
+// );
 
