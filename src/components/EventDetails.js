@@ -38,24 +38,61 @@ const EventDetails = () => {
 
 
  return (
-   <main className="event-page">
-    <div className="event-top">
+   <div className="main-content">
       <NavBar />
-      <div className="event-header">
-        <div className="event-details">
+      <div className="event-page">
+      <header className="event-header">
+        <img
+          src='/img/event.jpg'
+          alt="event image"
+          className="event-image"
+        />
+      </header>
+      {/* <div className="event-details">
           <h1 className = "event-title">{event.name}</h1>
           <p>{event.details}</p>
           <p>{event.admission ? `$${event.admission}` : "Free Admission"}</p>
+      </div> */}
+    <main className="event-details">
+      <h1 className = "event-title-details">{event.name}</h1>
+        <div className='link-section'>
+          <a href={event.link} target="_blank">
+          <img 
+            src='/img/Instagram.png'
+            alt='instagram'
+            className='insta-links'
+          />
+        </a>
+        <a href={event.link} target="_blank">
+          <img 
+            src='/img/Link.png'
+            alt='link'
+            className='web-links'
+          />
+        </a>
+        <div className="event-info">
+          <p>
+            <img
+            src='/img/Calendar.png'
+            alt='calendar'
+            className='calendar-image'
+            />
+            {event.startTime} | {event.date}
+          </p>
+          <p>{event.admission ? `$${event.admission}` : "Free Admission"}</p>
         </div>
       </div>
-    </div>
+      <p>{event.details}</p>
+      <p>{event.admission ? `$${event.admission}` : "Free Admission"}</p>
+    </main>
     
     {/* <h1>{event.name}</h1>
     <p>{event.details}</p>
     <p>{event.date}</p>
     <p>{event.admission ? `$${event.admission}` : "Free Admission"}</p>
      Other event details */}
-   </main>
+    </div>
+   </div>
  );
 };
 
