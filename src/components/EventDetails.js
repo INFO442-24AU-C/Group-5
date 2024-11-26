@@ -68,10 +68,11 @@ const EventDetails = () => {
               />
             </a>
           </div>
+          <p className="event-text">{event.rsoAffiliation ? `${event.rsoAffiliation}` : null}</p>
         </div>
-          <p className="event-text">{event.details}</p>
+          <p className="event-text">{event.details} </p>
       </div>
-      <div className="event-info">
+      <div className="event-section-info">
         <p>
           <img
           src='/img/Calendar.png'
