@@ -799,75 +799,121 @@ header .search-bar::placeholder {
   background-color: #444;
   color: white;
 }
+ }
+
+
+/* event details section */
+ 
+ .event-page {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.event-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 10px;
+  margin: 10px;
+  width: 100%;
+  height: 400px; /* Adjust as needed */
+}
+
+.event-section-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.event-section-details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-right: 15px;
+  gap: 10px;
+}
+
+
+.event-title-details {
+  display: flex;
+  width: 400px;
+  color: var(--white, #FFF);
+  font-family: Gain;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+}
 
 /* Buttons */
 .header-actions {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  width: 400px;
+  /* align-items: center; */
+  gap: 14px;
+  align-self: stretch;
 }
 
-.auto-btn {
-  background-color: #1a1a1a;
-  border: none;
-  color: white;
-  font-size: 1em;
+.insta-link {
+  width: 28px;
+  height: 28px;
+}
+
+.web-link {
+  width: 36px;
+  height: 36px;
+}
+
+.event-text {
+  color: var(--white, #FFF);
+  width: 500px;
+  font-family: Gain;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.event-section-info {
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  gap: 19px;
+  border-radius: 12px;
+  align-self: flex-start;
+  margin-left: auto;
+  background-color: #333333;
+  color: var(--white, #FFF);
+  font-family: Gain;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.event-icon-images {
+  width: 19.5px;
+  height: 21px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.save-event-button {
+  display: flex;
+  background: var(--teal, #29D2C9);
+  color: black;
+  width: 262px;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-}
-
-.add-to-profile-btn {
-  background-color: #29D2C9;
-  border: none;
-  color: white;
-  font-size: 1em;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.auto-btn:hover,
-.add-to-profile-btn:hover {
-  opacity: 0.8;
-}
-
-/* Main Content */
-.profile-content {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.content-top {
-  display: flex;
-  flex-direction: row;
-  padding: 15px;
-  border-radius: 10px;
-  gap: 0.75em;
-}
-
-.profile-page h2{ 
-  font-size: medium;
-}
-
-.content-top .about {
-  width: 50%;
-  border-radius: 10px;
-  background-color: #1a1a1a;
-  padding: 15px;
-  height: 20em;
-}
-
-.content-top .top-right {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  gap: 0.75em;
-  height: 20em;
-}
+ }
 
 .genres{
   width: 100%;
@@ -896,6 +942,180 @@ header .search-bar::placeholder {
 .saved-events {
   flex: 1 1 100%;
 }
+
+
+
+/* Profile Page */
+.profile-page {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #ffffff;
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9em;
+  line-height: 100%;
+}
+
+.name {
+  margin: 2px 0;
+  font-size: 0.9em;
+}
+
+.profile-meta {
+  margin: 2px 0;
+  font-size: 0.95em;
+  color: gray;
+}
+
+
+
+
+
+/* Edit Profile */
+.nav-in-edit {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.edit-profile-box {
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  height: auto; 
+  box-sizing: border-box;
+  border-radius: 10px;
+  margin: 1% 4%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 80px;
+  color: #ffffff;
+}
+
+.section-part1 {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  color: black;
+}
+
+.section-part1 h1 {
+  font-size: 27px;
+  font-weight: 700;
+  margin-top: 5%;
+  color: #ffffff;
+}
+
+.section-part1 img {
+  width: 244px;
+  height: 259px;
+  margin-top: 3%;
+}
+
+.section-part1 label {
+  margin: 6% 15%;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.section-part1 label:hover {
+  background-color: #5566FF;
+}
+
+.section-part2 {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+}
+
+.section-part2 .userName, .section-part2 .userImg, .section-part2 .userAbout, .section-part2 .userRSO, .section-part2 .userGenre, .section-part2 .userLink, .section-part2 .userSong {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8%;
+}
+
+.userInfo label {
+  font-size: 18px;
+}
+
+.userInfo h2 {
+  font-size: 24px;
+} 
+
+.userInfo input {
+  font-size: 20px;
+  text-align: left;
+  width: 100%;
+  height: 3em;
+  border-radius: 10px;
+  background-color: #1a1a1a;
+  padding: 15px;
+  color: white
+}
+
+.userInfo .img-upload {
+  font-size: 20px;
+  text-align: left;
+  width: 100%;
+  height: 3em;
+  border-radius: 10px;
+  background-color: #1a1a1a;
+  padding: 15px;
+}
+
+.section-part2 button {
+  display: flex;
+  padding: 10px 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  background: #29D2C9;
+}
+
+
+/* Sing-in page */
+
+.signin {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5em;
+}
+
+.signin h1 {
+  color: white;
+}
+
 
 
 

@@ -1,10 +1,11 @@
-
 import { BrowserRouter, Route, Routes, Navigate, useNavigate, Outlet } from "react-router-dom";
 import { React, useEffect, useState } from "react";
 import { NavBar } from "./components/Navbar_2.js";
 import { auth } from "./components/firebaseConfig.js";
 import { onAuthStateChanged, getAuth } from 'firebase/auth';
 import { getDatabase, ref, push, set as firebaseSet } from "firebase/database";
+
+
 
 
 import { HomePage } from "./components/main.js";
@@ -17,6 +18,9 @@ import { EditProfilePage } from "./components/EditProfilePage.js";
 import { EditProfilePage_2 } from "./components/EditProfilePage_2.js";
 
 
+import EventDetails from "./components/EventDetails.js";
+
+
 
 
 function App() {
@@ -27,6 +31,8 @@ function App() {
   const database = getDatabase();
 
   // const userDataRef = ref(database, "userData");
+
+
 
 
   useEffect(() => {
@@ -49,6 +55,9 @@ function App() {
         
 
 
+
+
+
       }
       else {
         console.log("signed out");
@@ -58,22 +67,27 @@ function App() {
     })
 
 
+
+
   })
 
-  return (
-    <div>
-        <Routes>
-            <Route index element={<HomePage />} />
-            <Route path="home" element={<HomePage />} />
-            <Route path="/sign-in" element={<SignInPage />} />
-            <Route path="/rso-and-events" element={<RSOSection />} />
-            <Route path="/profile" element={<CreateProfilePage />} />
+ return (
+   <div>
+       <Routes>
+           <Route index element={<HomePage />} />
+           <Route path="home" element={<HomePage />} />
+           <Route path="/sign-in" element={<SignInPage />} />
+           <Route path="/rso-and-events" element={<RSOSection />} />
+           <Route path="/profile" element={<CreateProfilePage />} />
             <Route path="edit" element={<EditProfilePage />} />
-            <Route path="/create-events" element={<CreateEventPage />} />
-        </Routes>
-    </div>
-  );
+           <Route path="/create-events" element={<CreateEventPage />} />
+           <Route path="/event/:id" element={<EventDetails />} />
+       </Routes>
+   </div>
+ );
 }
+
+
 
 
 export default App;
