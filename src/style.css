@@ -799,7 +799,7 @@ header .search-bar::placeholder {
   background-color: #444;
   color: white;
 }
- }
+
 
 
 /* event details section */
@@ -1167,10 +1167,6 @@ header .search-bar::placeholder {
   font-size: 0.95em;
   color: gray;
 }
-
-
-
-
 
 /* Edit Profile */
 .nav-in-edit {
