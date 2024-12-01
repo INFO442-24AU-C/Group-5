@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes, Navigate, useNavigate, Outlet } from "react-router-dom";
-import { React, useEffect, useState } from "react";
+import { React, useEffect, useState, useRef } from "react";
 import { NavBar } from "./components/Navbar_2.js";
 import { auth } from "./components/firebaseConfig.js";
 import { onAuthStateChanged, getAuth } from 'firebase/auth';
@@ -30,10 +30,21 @@ function App() {
   // console.log(currentUser);
   const database = getDatabase();
 
+  
   // const userDataRef = ref(database, "userData");
+  const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
+  const handlePlayMusic = () => {
+    audioRef.current.play();
+    setIsPlaying(true);
+  };
 
-
+  const handleStopMusic = () => {
+    audioRef.current.pause();
+    audioRef.current.currentTime = 0;  
+    setIsPlaying(false);
+  };
 
   useEffect(() => {
     const auth = getAuth();
@@ -65,14 +76,30 @@ function App() {
         navigateTo('/signin');
       }
     })
-
-
-
-
   })
 
+
  return (
+   
    <div>
+      {/* Audio Element */}
+        <audio ref={audioRef} loop>
+        <source src="/background.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+
+      {/* Music Controls */}
+      <div style={{ margin: "20px", textAlign: "center" }}>
+        {!isPlaying ? (
+          <button onClick={handlePlayMusic} style={{ marginRight: "10px" }}>
+            Play Background Music
+          </button>
+        ) : (
+          <button onClick={handleStopMusic} style={{ marginRight: "10px" }}>
+            Stop Music
+          </button>
+        )}
+      </div>
        <Routes>
            <Route index element={<HomePage />} />
            <Route path="home" element={<HomePage />} />
