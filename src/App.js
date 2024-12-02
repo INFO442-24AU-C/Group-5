@@ -31,7 +31,7 @@ function App() {
   // console.log(currentUser);
   const database = getDatabase();
 
-  
+
   // const userDataRef = ref(database, "userData");
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -43,7 +43,7 @@ function App() {
 
   const handleStopMusic = () => {
     audioRef.current.pause();
-    audioRef.current.currentTime = 0;  
+    audioRef.current.currentTime = 0;
     setIsPlaying(false);
   };
 
@@ -62,21 +62,21 @@ function App() {
           const userEmailRef = ref(database, "userData/" + user.uid + "/email");
           firebaseSet(userNameRef, user.displayName);
           firebaseSet(userEmailRef, user.email);
-          
+
         }
-    
+
       }
       else {
         console.log("signed out");
         setCurrentUser(null);
-        navigateTo('/signin');
+        navigateTo('/sign-in');
       }
     })
   })
 
 
  return (
-   
+
    <div>
       {/* Audio Element */}
         <audio ref={audioRef} loop>
