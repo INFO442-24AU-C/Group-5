@@ -16,6 +16,7 @@ import CreateEventPage from "./components/CreateEventPage.js";
 import { SignInPage } from "./SignInPage.js";
 import { EditProfilePage } from "./components/EditProfilePage.js";
 import { EditProfilePage_2 } from "./components/EditProfilePage_2.js";
+import { RSODetail } from './components/RSOdetail';
 
 
 import EventDetails from "./components/EventDetails.js";
@@ -63,12 +64,7 @@ function App() {
           firebaseSet(userEmailRef, user.email);
           
         }
-        
-
-
-
-
-
+    
       }
       else {
         console.log("signed out");
@@ -105,6 +101,7 @@ function App() {
            <Route path="home" element={<HomePage />} />
            <Route path="/sign-in" element={<SignInPage />} />
            <Route path="/rso-and-events" element={<RSOSection />} />
+           <Route path="/rso/:rsoId" element={<RSODetail />} />
            <Route path="/profile" element={<CreateProfilePage />} />
             <Route path="edit" element={<EditProfilePage />} />
            <Route path="/create-events" element={<CreateEventPage />} />

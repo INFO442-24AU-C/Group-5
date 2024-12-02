@@ -17,14 +17,8 @@ export const NavBar = () => {
               <div className="text-wrapper-2">Find your flock</div>
             </div>
 
-            <div className="notifications">
-              <div className="text-wrapper-3">Notifications</div>
-
-              <div className="number">
-                <div className="text-wrapper-4">2</div>
-              </div>
             </div>
-          </div>
+  
         </div>
 
         <div className="frame-2">
@@ -36,12 +30,9 @@ export const NavBar = () => {
 
             <div className="navbar-button-2">
               {/* <IconComponentNode className="home-instance" /> */}
-              <div className="text-wrapper-3"><NavLink to="/rso-and-events">RSOs + Events</NavLink></div>
+              <div className="text-wrapper-3"><NavLink to="/rso-and-events">RSOs and Events</NavLink></div>
             </div>
 
-            <div className="navbar-button-2">
-              <div className="text-wrapper-3">Postings</div>
-            </div>
           </div>
 
           <div className="bottom-section">

@@ -301,22 +301,39 @@ header .search-bar::placeholder {
 }
 
 
+/* Overall Page Layout */
+.page-layout {
+  display: flex;
+  height: 100vh;  
+}
+
+/* Left-aligned Navbar */
+.page-layout .navbar {
+  width: 250px;
+  background-color: #1E1E1E;
+  color: #FFFFFF;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
 /* RSO Section */
 .rso-section {
+  flex: 1;
   padding: 20px;
   background-color: #1E1E1E;
+  color: #FFFFFF;
+  overflow-y: auto;  
 }
 
 .rso-section h3 {
-  color: #FFFFFF;
-  font-size: 20px;
-  margin-bottom: 15px;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 .rso-cards {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
-  overflow-x: auto;
 }
 
 .rso-card {
@@ -328,6 +345,11 @@ header .search-bar::placeholder {
   padding: 15px;
   width: 150px;
   text-align: center;
+  text-decoration: none;  
+}
+
+.rso-card:hover {
+  background-color: #444444;  
 }
 
 .rso-image {
@@ -346,6 +368,82 @@ header .search-bar::placeholder {
   font-size: 14px;
   color: #AAAAAA;
 }
+
+/* RSO Detail */
+.rso-detail {
+  flex: 1; /* Take up the remaining space */
+  padding: 40px;
+  background-color: #1E1E1E; /* Match the website's theme */
+  color: #FFFFFF;
+  overflow-y: auto; /* Allow scrolling if content overflows */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.rso-detail-image {
+  width: 100%;
+  max-width: 600px; /* Limit image size */
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+}
+
+.rso-detail h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #E4E4E4;
+  text-align: center;
+}
+
+.rso-detail p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #AAAAAA;
+  text-align: center;
+  margin: 0 20px 20px 20px;
+}
+
+.rso-detail-info {
+  width: 100%;
+  max-width: 600px;
+  background-color: #2B2B2B;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.rso-detail-info p {
+  font-size: 16px;
+  color: #FFFFFF;
+  margin-bottom: 10px;
+}
+
+.rso-detail-info p strong {
+  color: #00AFAF;
+}
+
+@media (max-width: 768px) {
+  .rso-detail h1 {
+    font-size: 28px;
+  }
+
+  .rso-detail p {
+    font-size: 16px;
+  }
+
+  .rso-detail-info {
+    padding: 15px;
+  }
+
+  .rso-detail-info p {
+    font-size: 14px;
+  }
+}
+
 
 /* Background Image Styles */
 .background-image {

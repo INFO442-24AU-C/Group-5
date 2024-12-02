@@ -10,8 +10,8 @@ export function Navbar() {
   const subtitle = document.createElement('p');
   subtitle.textContent = 'Find your flock';
 
-  const notifications = document.createElement('div');
-  notifications.classList.add('notifications');
+  // const notifications = document.createElement('div');
+  // notifications.classList.add('notifications');
 
   const notificationText = document.createElement('span');
   notificationText.textContent = 'Notifications';

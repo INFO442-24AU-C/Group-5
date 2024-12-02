@@ -3,7 +3,7 @@ import React, { useState }from 'react';
 import { NavBar } from './Navbar_2.js';
 import { SearchBar } from './Searchbar.js';
 import { Events } from './Event.js';
-import { RSOSection } from './RSOsection.js';
+ 
 
 export function HomePage() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -23,7 +23,7 @@ export function HomePage() {
       />
       <Events activeFilter={activeFilter} searchText={searchText}/>
 
-      <RSOSection />
+ 
       </div>
     </div>
   );

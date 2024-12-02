@@ -10,19 +10,19 @@ import "../style.css";
 
 
 const EventDetails = () => {
- const { id } = useParams(); // Get the event ID from the URL
+ const { id } = useParams(); 
  const [event, setEvent] = useState(null);
 
 
  useEffect(() => {
    const eventRef = ref(database, `events/${id}`);
-   console.log("Fetching event with ID:", id);  // Log ID to ensure it's correct
+   console.log("Fetching event with ID:", id);   
 
 
    get(eventRef)
      .then((snapshot) => {
        if (snapshot.exists()) {
-         console.log("Event data:", snapshot.val()); // Log event data to see if it's being fetched correctly
+         console.log("Event data:", snapshot.val());  
          setEvent(snapshot.val());
        } else {
          console.error("Event not found for ID:", id);
