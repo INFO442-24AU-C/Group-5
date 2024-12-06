@@ -7,12 +7,8 @@ import { StyledFirebaseAuth } from 'react-firebaseui';
 import { useNavigate, Link } from 'react-router-dom';
 
 export function SignInPage(props) {
-    // const currentUser = props.currentUser;
     const auth = getAuth();
     const navigateTo = useNavigate();
-
-    // console.log(currentUser);
-    // console.log("hello");
     const configObj = {
         signInOptions: [
           { 

@@ -3,6 +3,7 @@ import { database } from "./firebaseConfig";
 import { ref, onValue } from "firebase/database";
 import { Link } from "react-router-dom";
 import "../style.css";
+import event_img from '../img/event.jpg';
 
 
 export function Events({ activeFilter, searchText }) {
@@ -60,7 +61,7 @@ export function Events({ activeFilter, searchText }) {
 
  return (
    <section className="events-section">
-     <h3>Events</h3>
+     <h3> Upcoming Events</h3>
      <div className="event-cards">
        {filteredEvents.length > 0 ? (
          filteredEvents.map((event, index) => (
@@ -70,7 +71,7 @@ export function Events({ activeFilter, searchText }) {
              className="event-card"
            >
              <img
-               src={event.headerImage || "/img/event.jpg"} // Use default image if none is provided
+               src={event_img} 
                alt={event.title}
                className="event-image"
              />

@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { NavBar } from './Navbar_2.js'; // Import the Navbar component
 import '../style.css';
+import RSO_img from '../img/RSO.png';
 
 export function RSODetail() {
   const { rsoId } = useParams();
@@ -14,7 +15,7 @@ export function RSODetail() {
       time: '10:20',
       location: 'Unknown',
       price: '$40',
-      imageSrc: '/img/RSO.png',
+      imageSrc: {RSO_img},
     },
     'birdwatching-club': {
       title: 'Birdwatching Club',
@@ -23,7 +24,7 @@ export function RSODetail() {
       time: '09:00',
       location: 'UW Forest',
       price: 'Free',
-      imageSrc: '/img/RSO.png',
+      imageSrc: {RSO_img},
     },
     'book-club': {
       title: 'Book Club',
@@ -32,7 +33,7 @@ export function RSODetail() {
       time: '15:00',
       location: 'Library Room 202',
       price: 'Free',
-      imageSrc: '/img/RSO.png',
+      imageSrc: {RSO_img},
     },
   };
 
@@ -45,7 +46,7 @@ export function RSODetail() {
 
       {/* Main content spans the rest of the page */}
       <div className="rso-detail">
-        <img src={rso.imageSrc} alt={rso.title} className="rso-detail-image" />
+        <img src={RSO_img} alt={rso.title} className="rso-detail-image" />
         <h1>{rso.title}</h1>
         <p>{rso.description}</p>
         <div className="rso-detail-info">

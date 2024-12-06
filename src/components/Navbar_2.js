@@ -1,8 +1,6 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
-// import { Home } from "./Home";
-// import { Home1 } from "./Home1";
-// import { IconComponentNode } from "./IconComponentNode";
+import profile_img from '../img/profile.jpg';
 
 
 export const NavBar = () => {
@@ -45,23 +43,12 @@ export const NavBar = () => {
 
               <div className="profile">
                 <div className="name">
-                  <img id="profileImg" src="img/profile.jpg" alt="Image" />
-
-
-
+                  <img id="profileImg" src={profile_img} alt="Image" />
                   <div className="frame-4">
-                    <div className="text-wrapper-7"><NavLink to="/profile">John Doe</NavLink></div>
+                    <div className="text-wrapper-7"><NavLink to="/create-profile">Personal Profile</NavLink></div>
 
-                    <div className="text-wrapper-8">Guitarist</div>
+                    <div className="text-wrapper-8">Birdies</div>
                   </div>
-                </div>
-
-                <div className="edit">
-                  <div className="ellipse" />
-
-                  <div className="ellipse" />
-
-                  <div className="ellipse" />
                 </div>
               </div>
             </div>

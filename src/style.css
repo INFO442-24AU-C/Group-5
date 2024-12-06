@@ -1041,340 +1041,146 @@ header .search-bar::placeholder {
   flex: 1 1 100%;
 }
 
-/* Profile Page */
+/* Profile Page Full-Screen Styling */
 .profile-page {
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px;
-  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  background-color: #1e1e1e; /* Dark background */
+  color: #fff; /* White text */
+  font-family: Arial, sans-serif;
 }
 
-.profile-header {
+/* Profile Card Styling */
+.profile-card {
+  background-color: #2c2c2c; /* Slightly lighter background for the card */
+  border-radius: 10px;
+  padding: 30px;
+  width: 100%;
+  max-width: 600px; /* Limit the maximum width */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Add some depth */
+}
+
+/* Profile Page Flexbox Layout */
+.profile-page {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 15px;
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  background-color: #1e1e1e; /* Dark background */
+  color: #fff; /* White text */
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  width: 250px; /* Fixed width for navbar */
+  background-color: #121212; /* Darker background */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Profile Content */
+.profile-content {
+  flex: 1; /* Take up the remaining space */
+  padding: 40px;
+  overflow-y: auto; /* Allow scrolling for long content */
+  background-color: #282828; /* Slightly lighter background */
+}
+
+/* Header */
+.profile-header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.profile-header h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Form Sections */
+.form-section {
   margin-bottom: 20px;
 }
 
-.profile-info {
-  display: flex;
-  align-items: center;
+.form-section label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #aaa; /* Light gray for labels */
 }
 
-.profile-pic {
-  width: 80px;
+.form-section input,
+.form-section textarea {
+  width: 100%;
+  padding: 12px;
+  background-color: #1e1e1e;
+  border: 1px solid #444; /* Subtle border */
+  color: #fff; /* White text */
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-section textarea {
+  resize: none; /* Disable resize */
   height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 15px;
 }
 
-.profile-details {
-  display: flex;
-  flex-direction: column;
-  font-size: 0.9em;
-  line-height: 100%;
+.form-section input:focus,
+.form-section textarea:focus {
+  border: 1px solid #007bff; /* Highlight input on focus */
+  outline: none;
 }
 
-.name {
-  margin: 2px 0;
-  font-size: 0.9em;
+/* Save Button */
+.save-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%; /* Full-width button */
+  transition: background-color 0.3s;
 }
 
-.profile-meta {
-  margin: 2px 0;
-  font-size: 0.95em;
-  color: gray;
+.save-button:hover {
+  background-color: #0056b3;
 }
 
-
-/* Edit Profile */
-.nav-in-edit {
-  display: flex;
-  flex-direction: row;
-}
-
-
-.edit-profile-box {
-  display: flex;
-  width: 100%;
-  max-width: 1000px;
-  height: auto; 
-  box-sizing: border-box;
-  border-radius: 10px;
-  margin: 1% 4%;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 80px;
-  color: #ffffff;
-}
-
-.section-part1 {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  color: black;
-}
-
-.section-part1 h1 {
-  font-size: 27px;
-  font-weight: 700;
-  margin-top: 5%;
-  color: #ffffff;
-}
-
-.section-part1 img {
-  width: 244px;
-  height: 259px;
-  margin-top: 3%;
-}
-
-.section-part1 label {
-  margin: 6% 15%;
-  font-weight: 500;
-  font-size: 18px;
-}
-
-.section-part1 label:hover {
-  background-color: #5566FF;
-}
-
-.section-part2 {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  align-items: left;
-  justify-content: center;
-}
-
-.section-part2 .userName, .section-part2 .userImg, .section-part2 .userAbout, .section-part2 .userRSO, .section-part2 .userGenre, .section-part2 .userLink, .section-part2 .userSong {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 8%;
-}
-
-.userInfo label {
-  font-size: 18px;
-}
-
-.userInfo h2 {
-  font-size: 24px;
-} 
-
-.userInfo input {
-  font-size: 20px;
-  text-align: left;
-  width: 100%;
-  height: 3em;
-  border-radius: 10px;
-  background-color: #1a1a1a;
-  padding: 15px;
-  color: white
-}
-
-.userInfo .img-upload {
-  font-size: 20px;
-  text-align: left;
-  width: 100%;
-  height: 3em;
-  border-radius: 10px;
-  background-color: #1a1a1a;
-  padding: 15px;
-}
-
-.section-part2 button {
-  display: flex;
-  padding: 10px 40px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 10px;
-  background: #29D2C9;
-}
-
-
-/* Sing-in page */
-
-.signin {
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 5em;
-}
-
-.signin h1 {
+/* Message */
+.message {
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #28a745;
   color: white;
 }
 
-
-
-
-/* Profile Page */
-.profile-page {
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px;
-  color: #ffffff;
+.message.error {
+  background-color: #dc3545;
 }
+ 
 
-.profile-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 15px;
-  margin-bottom: 20px;
-}
-
-.profile-info {
-  display: flex;
-  align-items: center;
-}
-
-.profile-pic {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 15px;
-}
-
-.profile-details {
-  display: flex;
-  flex-direction: column;
-  font-size: 0.9em;
-  line-height: 100%;
-}
-
-.name {
-  margin: 2px 0;
-  font-size: 0.9em;
-}
-
-.profile-meta {
-  margin: 2px 0;
-  font-size: 0.95em;
-  color: gray;
-}
-
-/* Edit Profile */
-.nav-in-edit {
-  display: flex;
-  flex-direction: row;
-}
-
-
-.edit-profile-box {
-  display: flex;
-  width: 100%;
-  max-width: 1000px;
-  height: auto; 
-  box-sizing: border-box;
-  border-radius: 10px;
-  margin: 1% 4%;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 80px;
-  color: #ffffff;
-}
-
-.section-part1 {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  color: black;
-}
-
-.section-part1 h1 {
-  font-size: 27px;
-  font-weight: 700;
-  margin-top: 5%;
-  color: #ffffff;
-}
-
-.section-part1 img {
-  width: 244px;
-  height: 259px;
-  margin-top: 3%;
-}
-
-.section-part1 label {
-  margin: 6% 15%;
-  font-weight: 500;
-  font-size: 18px;
-}
-
-.section-part1 label:hover {
-  background-color: #5566FF;
-}
-
-.section-part2 {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  align-items: left;
-  justify-content: center;
-}
-
-.section-part2 .userName, .section-part2 .userImg, .section-part2 .userAbout, .section-part2 .userRSO, .section-part2 .userGenre, .section-part2 .userLink, .section-part2 .userSong {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 8%;
-}
-
-.userInfo label {
-  font-size: 18px;
-}
-
-.userInfo h2 {
-  font-size: 24px;
-} 
-
-.userInfo input {
-  font-size: 20px;
-  text-align: left;
-  width: 100%;
-  height: 3em;
-  border-radius: 10px;
-  background-color: #1a1a1a;
-  padding: 15px;
-  color: white
-}
-
-.userInfo .img-upload {
-  font-size: 20px;
-  text-align: left;
-  width: 100%;
-  height: 3em;
-  border-radius: 10px;
-  background-color: #1a1a1a;
-  padding: 15px;
-}
-
-.section-part2 button {
-  display: flex;
-  padding: 10px 40px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 10px;
-  background: #29D2C9;
-}
-
-
-/* Sing-in page */
-
-.signin {
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 5em;
-}
-
-.signin h1 {
+.audio-control {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: #007bff;
   color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.audio-control:hover {
+  background-color: #0056b3;
 }

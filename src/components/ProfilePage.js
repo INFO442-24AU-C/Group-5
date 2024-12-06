@@ -1,111 +1,159 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { database } from "./firebaseConfig";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { ref as dbRef, onValue, set } from "firebase/database";
+import { NavBar } from "./Navbar_2";  
 
 const ProfilePage = () => {
+  const [profile, setProfile] = useState({
+    name: "",
+    about: "",
+    rsoAffiliation: "",
+    genre: "",
+    link: "",
+    favoriteSong: "",
+  });
+  const [uid, setUid] = useState(null);
+  const [message, setMessage] = useState("");
+
+  const auth = getAuth();
+
+  // Monitor authentication state
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUid(user.uid);
+      } else {
+        setUid(null);
+      }
+    });
+    return () => unsubscribe();
+  }, [auth]);
+
+  useEffect(() => {
+    if (uid) {
+      const userRef = dbRef(database, `userProfiles/${uid}`);
+      onValue(userRef, (snapshot) => {
+        if (snapshot.exists()) {
+          setProfile(snapshot.val());
+        }
+      });
+    }
+  }, [uid]);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setProfile({ ...profile, [name]: value });
+  };
+
+  const handleSaveProfile = async (e) => {
+    e.preventDefault();
+    if (!uid) {
+      setMessage("Please log in to save your profile.");
+      return;
+    }
+    setMessage("");
+    try {
+      const userRef = dbRef(database, `userProfiles/${uid}`);
+      await set(userRef, profile);
+      setMessage("Profile updated successfully!");
+    } catch (error) {
+      console.error("Error saving profile:", error);
+      setMessage("Error saving profile. Please try again.");
+    }
+  };
+
   return (
     <div className="profile-page">
-      <header className="profile-header">
-        <div className="profile-info">
-          <img
-            src="/img/profile.jpg"
-            alt="Profile"
-            className="profile-pic"
-          />
-          <div className="profile-details">
-            {/* <img src="/img/Instagram.png"/> */}
-            <p className="name">John Doe <span className="pronouns">(he/him)</span></p>
-            <p className="profile-meta">UW 2025</p>
-            <p className="profile-meta">Guitarist</p>
+      <NavBar />  
+      <div className="profile-content">
+        <header className="profile-header">
+          <h1>{profile.name || "Your Profile"}</h1>
+        </header>
+        <form onSubmit={handleSaveProfile}>
+          <div className="form-section">
+            <label htmlFor="name">Your Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={profile.name}
+              onChange={handleInputChange}
+              placeholder="Name"
+            />
           </div>
-        </div>
-        <div className="header-actions">
-          <button className="auto-btn"><NavLink to="/sign-in">Sign Out</NavLink></button>
-          <NavLink to="../edit">
-            <button className="add-to-profile-btn">Edit Profile</button>
-          </NavLink>
-        </div>
-      </header>
-      <main className="profile-content">
-        <div className="content-top">
-          <div className="about">
-            <h2>About</h2>
-            {/* Add content for the About section */}
-          </div>
-          <div className="top-right">
-            <div className="genres">
-              <h2>Genres</h2>
-              {/* Add content for Genres */}
-            </div>
-            <div className="genres">
-              <h2>Following RSOs</h2>
-              {/* Add content for Following RSOs */}
-            </div>
-          </div>
-        </div>
 
-        <div className="content-bottom">
-          <div className="profile-section favorite-songs">
-            <h2>Favorite Songs</h2>
-            {/* Add content for Favorite Songs */}
+          <div className="form-section">
+            <label htmlFor="about">About</label>
+            <textarea
+              id="about"
+              name="about"
+              value={profile.about}
+              onChange={handleInputChange}
+              placeholder="Tell us about yourself"
+            />
           </div>
-          <div className="profile-section saved-events">
-            <h2>Saved Events</h2>
-            {/* Add content for Saved Events */}
+
+          <div className="form-section">
+            <label htmlFor="rsoAffiliation">RSO Affiliation</label>
+            <input
+              type="text"
+              id="rsoAffiliation"
+              name="rsoAffiliation"
+              value={profile.rsoAffiliation}
+              onChange={handleInputChange}
+              placeholder="RSO Affiliation"
+            />
           </div>
-        </div>
-      </main>
+
+          <div className="form-section">
+            <label htmlFor="genre">Genre</label>
+            <input
+              type="text"
+              id="genre"
+              name="genre"
+              value={profile.genre}
+              onChange={handleInputChange}
+              placeholder="Genre"
+            />
+          </div>
+
+          <div className="form-section">
+            <label htmlFor="link">Add a Link</label>
+            <input
+              type="url"
+              id="link"
+              name="link"
+              value={profile.link}
+              onChange={handleInputChange}
+              placeholder="Add a link"
+            />
+          </div>
+
+          <div className="form-section">
+            <label htmlFor="favoriteSong">Link a Favorite Song</label>
+            <input
+              type="url"
+              id="favoriteSong"
+              name="favoriteSong"
+              value={profile.favoriteSong}
+              onChange={handleInputChange}
+              placeholder="Link to a favorite song"
+            />
+          </div>
+
+          <button type="submit" className="save-button">
+            Save Profile
+          </button>
+        </form>
+        {message && (
+          <p className={`message ${message.includes("Error") ? "error" : ""}`}>
+            {message}
+          </p>
+        )}
+      </div>
     </div>
   );
 };
 
 export default ProfilePage;
-
-
-// return (
-//   <div className="profile">
-//     <Nav />
-//     <div className="profile-content">
-//       <section className="section-one">
-//         <h1>My profile</h1>
-//         <div>
-//           <img src='img/profileImage_default.png' alt="profile image" className="rounded-circle border border-dark"/>
-//           <p>Name : {userName}</p>
-//           <p>Email : {userEmail}</p>
-//         </div>
-//         <Link to="../edit">
-//           <button type="button" class="btn-color rounded-5">Edit Profile</button>
-//         </Link>
-//         <Link to="../signin">
-//           <button type="button" class="btn-color rounded-5" onClick={handleSignOut}>Sign Out</button> 
-//         </Link>
-//       </section>
-//       <section className="section-two">
-//         <div className="flex-box bg-color quizBox">
-//           <div className="flex-subtitle">
-//             <img src="img/quiz_result_icon.png" alt="quiz result icon"/>
-//             <h2>Quiz Result</h2>                
-//           </div>
-//           {resultTemp && resultSeason &&
-//             <p>You are a {resultTemp} {resultSeason}!</p> 
-//           }
-//         </div>
-//         <div className="flex-box">
-//           <div className="flex-subtitle">
-//             <img src="img/saved_items_icon.png" alt="saved items icon"/>
-//             <h2>Saved Items</h2>
-//           </div>
-//           <SavedItems user={user}/>
-//         </div>
-//         <div className="flex-box">
-//           <div className="flex-subtitle">
-//             <img src="img/recommendations_icon.png" alt="recommendations icon"/>
-//             <h2>Recommendations</h2>
-//           </div>
-//           <RecommendationItems user={user}/>
-//         </div>
-//       </section>
-//     </div>
-//     <Footer />
-//   </div>
-// );
-
