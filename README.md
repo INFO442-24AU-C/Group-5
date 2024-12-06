@@ -1,4 +1,12 @@
-**This is the zach_1 branch**
+# WELCOME TO BIRDIES 🐦
+
+## Context
+
+In the University of Washington’s social environment, many students face challenges in finding a sense of belonging, especially with the university’s reputation as a “commuter school.” While academic success is often a key aspect of collegiate life, social integration plays an equally crucial role in student mental health, retention, and overall satisfaction. We have noticed that there is a lack of platforms that foster connections based on shared interests. As a result, we are hoping to bridge students together based on the shared interest of music, whether it’s joining a band, or just being able to find a community to have jam sessions with. There isn't much research specific to our problem space of music extracurriculars, but related research and studies conducted from other universities can be applied to our area. 
+
+## Our Mission
+
+Our team's mission and main problem space is to reduce barriers to participation in the University of Washington’s music community by creating a platform that makes it easier for students to discover music-related events, connect with others who share similar interests, and foster a sense of belonging through collaborative music experiences. We aim to enhance social integration, mental well-being, and overall student satisfaction by building a space where students can easily find and engage with music communities, whether through joining bands, attending jam sessions, or participating in other music-related activities.
 
 # Getting Started with Create React App
 
