@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { database } from "./firebaseConfig";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { ref as dbRef, onValue, set } from "firebase/database";
-import { NavBar } from "./Navbar_2";  
+import { v4 as uuidv4 } from "uuid";  
+import { NavBar } from "./Navbar_2";
 
 const ProfilePage = () => {
   const [profile, setProfile] = useState({
@@ -13,22 +13,22 @@ const ProfilePage = () => {
     link: "",
     favoriteSong: "",
   });
-  const [uid, setUid] = useState(null);
+  const [uid, setUid] = useState(null);  
   const [message, setMessage] = useState("");
 
-  const auth = getAuth();
+  const getTemporaryUserId = () => {
+    let tempUserId = localStorage.getItem("tempUserId");
+    if (!tempUserId) {
+      tempUserId = uuidv4();  
+      localStorage.setItem("tempUserId", tempUserId);  
+    }
+    return tempUserId;
+  };
 
-  // Monitor authentication state
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUid(user.uid);
-      } else {
-        setUid(null);
-      }
-    });
-    return () => unsubscribe();
-  }, [auth]);
+    const tempUserId = getTemporaryUserId();
+    setUid(tempUserId);  
+  }, []);
 
   useEffect(() => {
     if (uid) {
@@ -48,14 +48,10 @@ const ProfilePage = () => {
 
   const handleSaveProfile = async (e) => {
     e.preventDefault();
-    if (!uid) {
-      setMessage("Please log in to save your profile.");
-      return;
-    }
     setMessage("");
     try {
       const userRef = dbRef(database, `userProfiles/${uid}`);
-      await set(userRef, profile);
+      await set(userRef, profile); 
       setMessage("Profile updated successfully!");
     } catch (error) {
       console.error("Error saving profile:", error);
@@ -65,7 +61,7 @@ const ProfilePage = () => {
 
   return (
     <div className="profile-page">
-      <NavBar />  
+      <NavBar />
       <div className="profile-content">
         <header className="profile-header">
           <h1>{profile.name || "Your Profile"}</h1>
