@@ -1,37 +1,30 @@
 Acceptance Tests for Key Features
 
-Login
-  - Test that users are able to login seamlessly with their UW net ID
-  - Ensure that only UW students are able to create an account
 
 Event navigation
-  - Users can filter for events based on genre, location and RSO
-  - Users can RSVP for an event on our webpage
+  - Users can filter for events based on genre,
   - Users can navigate to event details easily
+  - Users can search for events in the search bar
   - Users can flip through multiple event details seamlessly
 
-Posting
+Creating Events
   - RSO’s can post events and link their current social medias (e.g.. instagram)
   - Non-RSO users can post events in a separate section
   - Users can tag genre, theme and other tags to their post
-  - Users can delete and edit their posts without error
 
 Event Navigation
-  - Our acceptance testing process for event navigation will focus on the acceptance – users can discover music events that match their genre, location and price preferences Our main objective is to ensure that our user test results meet the acceptance criteria.
+  - Our acceptance testing process for event navigation will focus on the acceptance – users can discover music events that match their genre and other personal preferences. Our main objective is to ensure that our user test results meet the acceptance criteria.
   - For this test, we will follow this procedure:
-        1. Identify a user who is interested in a specific genre (e.g. rock), location vicinity (e.g. within 3 miles) and price preference (e.g. free).
-        2. Scroll through the explore page to see if any events match the user preferences
-              A successful test would return the most relevant events based on user profile on the top and less relevant posts on the bottom.
-              A failed test would return a randomized list of events irrelevant to the user’s profile.
-        3. Use the search bar to search for local rock events, see what the page returns
-              A successful test would return the most recent rock events that are closest to the user’s location.
-              A failed test would fail to identify related events and narrow down the events feed.
-        4. Input a 3 mile radius distance constraint in the filter, see what the page returns.
-              A successful test would return only the events that were within the 3 mile radius.
-              A failed test would still include events outside the 3 mile radius.
-        5. Navigate to the RSO page to explore RSO details. Is the user able to reach the linked social media platforms?
-              A successful test would allow the user to the linked page(s) (e.g. Instagram, Snapchat) without changing the current page.
-              A failed test would be missing external links to social media or the user may not be able to successfully reach the page.
+        1. Identify a user who is interested in a specific genre (e.g. rock).
+        2. Using filter and scroll through the explore page to see if any events match the user preferences
+              A successful test would return a list of events that related to that specific genre.
+              A failed test would return a randomized list of events irrelevant to that specific genre
+        3. Use the search bar to search for a specific event name, see what the page returns
+              A successful test would return the event card of that specific event.
+              A failed test would fail to return that event and give users a blank page. 
+        4. Navigate to the “RSO and Event” page to explore RSO details. Is the user able to check the detailed information of that RSO and upcoming events?
+              A successful test would allow the user to the detailed page of RSOs and details information like location, date, and price of their upcoming events.
+              A failed test would fail to display the location, date, and price of upcoming events, instead showing missing data or an error message.
 
 Event Posting
 - For this feature, our acceptance criteria is that – users can successfully create and post upcoming events.
@@ -42,16 +35,21 @@ Event Posting
         2. Input details regarding the event 
               A successful test would allow the user to input information into the form inputs and collect the information in firebase
               A failed test wouldn’t allow the user to input information or may not collect the information in our database.
-        3. Preview the post before submission
-              A successful test would display the preview before the user submits
-              A failed test might submit right away before the user can preview their post
-4. Check that the post has reached the explore page
-              A successful test would appear on the explore page if the user is an individual student and the RSO page if the submitter was submitting on behalf of an RSO
-              A failed test might place the post on the wrong page (e.g.. Individual post on RSO page)
+        3. Success message after submission
+              A successful test would display “Event created successfully!” after the user submits
+              A failed test might submit right away and no message pop-up.
+        4. Check that the post has reached the explore page
+              A successful test would appear on the explore page (or homepage).
+              A failed test fails to display cards for events in the explore page (or  homepage),preventing users from accessing detailed pages with event information like location, date, and price.
 
 Known Limitations of Acceptance Tests
+
 In-house testers may be more familiar with the interface and may not accurately represent new users’ experiences. Real users might struggle with navigation or interpreting features differently. Additionally, our testers might overlook accessibility needs that diverse users, including those with disabilities, may have.
 Acceptance tests focus on predefined interactions, but real users may use the product in unanticipated ways. For instance, they might combine filters in ways not extensively tested, encounter edge cases when RSVPing for events, or use social media sharing in ways that weren’t anticipated.
 Unlike real users, in-house testers might not provide feedback that fully represents end-users’ concerns, needs, or areas for improvement. Real-world feedback loops can highlight areas that require refinement or adjustments to align with user expectations more closely than initial testing environments can.
-To address these limitations, we could introduce broader device testing, simulate varied network conditions, and run usability tests with real users from different backgrounds and environments. This approach would help uncover potential issues that could impact the user experience in real-world contexts. We can conduct user interviews or surveys after launch to understand user needs and iterate based on direct feedback. Release minor updates regularly to address user feedback promptly.
+To address these limitations, we could introduce broader device testing, simulate varied network conditions, and run usability tests with real users from different backgrounds and environments. This approach would help uncover potential issues that could impact the user experience in real-world contexts. We can conduct user interviews or surveys after launch to understand user needs and iterate based on direct feedback. Release minor updates regularly to address user feedback promptly
+
+Other important Updates
+
+Compared to the previous version with slides, we have temporarily removed the sign-up feature to simplify user access to our website. However, this does not affect the ability of users to create profiles and store their information on the site. On the event detailed information page, the "save" button still works as intended, allowing users to save events of interest to the real-time database. However, in the MVP (Minimum Viable Product) stage, we do not plan to display these saved events on the personal profile page. Our goal during the MVP stage is to quickly release a stable version focusing on core functionalities to validate user interest and demand for key features. Storing saved events in the real-time database ensures functional completeness while avoiding the complexity of front-end display logic and profile page integration. This approach allows the team to focus on optimizing core features, such as event creation, browsing, and saving, and use early user feedback to prioritize and refine functionalities, reducing development costs and unnecessary complexity.
 
